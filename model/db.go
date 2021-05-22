@@ -31,7 +31,7 @@ func InitDb() {
 		fmt.Println("数据库连接失败，请检查后重试!", err)
 		os.Exit(0)
 	}
-	db.AutoMigrate()
+	db.AutoMigrate(&User{})
 	sqlDB, _ := db.DB()
 	sqlDB.SetMaxIdleConns(10)
 	sqlDB.SetMaxOpenConns(100)
